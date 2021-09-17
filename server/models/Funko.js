@@ -1,5 +1,5 @@
 const sequelize = require('sequelize');
-const {DataTypes, Sequelize} = require('sequelize');
+const {DataTypes} = require('sequelize');
 
 module.exports = (sequelize) => sequelize.define('funkos', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
