@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const sequelize = require('../db');
+const permission = require('../middlewares/permission');
 
 //Get all checked funkos
-router.get('/', async (req, res) => {
+router.get('/', permission('admin', 'client'), async (req, res) => {
     const users = await sequelize.models.checkedFunkos.findAndCountAll();
     return res.status(200).json({ data: checkedFunkos });
 });
 
 //Create a new checked funko
-router.post('/', async (req, res) => {
+router.post('/', permission('admin', 'client'), async (req, res) => {
     const { body } = req;
     const checkedFunko = await sequelize.models.checkedFunkos.create({
         userId: body.userId,
@@ -20,7 +21,7 @@ router.post('/', async (req, res) => {
 });
 
 //Update a checked funko by id
-router.put('/:id', async (req, res) => {
+router.put('/:id', permission('admin', 'client'), async (req, res) => {
     const {body, params: {id} } = req;
     const checkedFunko = await sequelize.models.checkedFunkos.findByPk(id);
     if(!checkedFunko) {
@@ -34,7 +35,7 @@ router.put('/:id', async (req, res) => {
 });
 
 //Delete a checked funko by id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', permission('admin', 'client'), async (req, res) => {
     const {params: {id}} = req;
     const checkedFunko = await sequelize.models.checkedFunkos.findByPk(id);
     if(!checkedFunko) {
