@@ -1,4 +1,5 @@
 // db.js
+require('dotenv').config();
 const { Sequelize } = require('sequelize');
 
 //Importing models
@@ -7,8 +8,8 @@ const User = require('./models/User');
 const CheckedFunko = require('./models/CheckedFunko');
 
 //Database connection
-const sequelize = new Sequelize('funko_checklist', 'root', 'root', {
-    host: 'localhost',
+const sequelize = new Sequelize(process.env.MARIADB_DATABASE, process.env.MARIADB_USER, process.env.MARIADB_PASSWORD, {
+    host: process.env.MARIADB_HOST,
     dialect: 'mariadb',
     logging: false
 });
@@ -30,3 +31,5 @@ for (let model of models) {
 const {funkos, users, checkedFunkos} = sequelize.models;
 checkedFunkos.belongsTo(funkos);
 checkedFunkos.belongsTo(users);
+
+module.exports = sequelize;

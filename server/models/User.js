@@ -1,4 +1,4 @@
-const sequelize = require('sequelize');
+// const sequelize = require('sequelize');
 const {DataTypes} = require('sequelize');
 const bcrypt = require('bcrypt');
 
@@ -18,20 +18,20 @@ module.exports = (sequelize) => {
             beforeCreate: (user) => {
                 const salt = bcrypt.genSaltSync();
                 user.password = bcrypt.hashSync(user.password, salt);
-            },
-            beforeCreate: function (user, options, fn) {
-                user.createdAt = new Date();
-                user.updatedAt = new Date();
-                fn(null, user);
-            },
-            beforeUpdate: function (user, options, fn) {
-                user.updatedAt = new Date();
-                fn(null, user);
             }
+            // beforeCreate: function (user, options, fn) {
+            //     user.createdAt = new Date();
+            //     user.updatedAt = new Date();
+            //     fn(null, user);
+            // },
+            // beforeUpdate: function (user, options, fn) {
+            //     user.updatedAt = new Date();
+            //     fn(null, user);
+            // }
         }
     });
     User.prototype.validPassword = function(password) {
         return bcrypt.compareSync(password, this.password);
     };
     return User;
-};
+ };

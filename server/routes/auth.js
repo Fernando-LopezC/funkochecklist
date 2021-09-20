@@ -1,6 +1,6 @@
 const express = require('express');
-const sequelize = require('sequelize');
 const router = express.Router();
+const sequelize = require('../db');
 const jwt = require('jsonwebtoken');
 
 router.post('/login', async (req, res) => {
@@ -14,12 +14,12 @@ router.post('/login', async (req, res) => {
     }
 
     if (!user.validPassword(body.password)) {
-        return res.status(401).json({ message: 'Invalid credentials' });
+        return res.status(401).json({ message: 'Wrong Password' });
     }
 
     //Generate token
-    const token = jwt.sign({ userId: user.id }, 'secretkey', {
-        expiresIn: 36000
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRETKEY, {
+        expiresIn: process.env.JWT_EXPIRESIN
     });
 
     return res.json({
@@ -30,9 +30,9 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
     const { body } = req;
-    let user = await sequelize.models.users.findOne({
+    let user = await sequelize.models.users.findOne({ where: {
         email: body.email
-    });
+    }});
 
     //Validation to know if user's email already exists
     if (user) {
