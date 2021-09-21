@@ -5,7 +5,7 @@ const sequelize = require('../db');
 
 //Get all checked funkos
 router.get('/', /*permission('admin', 'client'),*/ async (req, res) => {
-    const users = await sequelize.models.checkedFunkos.findAndCountAll();
+    const checkedFunkos = await sequelize.models.checkedFunkos.findAndCountAll();
     return res.status(200).json({ data: checkedFunkos });
 });
 

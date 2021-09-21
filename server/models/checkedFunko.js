@@ -21,16 +21,4 @@ module.exports = (sequelize) => sequelize.define('checkedFunkos', {
       },
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE
-}, {
-    hooks: {
-        beforeCreate: function (checkedFunko, options, fn) {
-            checkedFunko.createdAt = new Date();
-            checkedFunko.updatedAt = new Date();
-            fn(null, checkedFunko);
-        },
-        beforeUpdate: function (checkedFunko, options, fn) {
-            checkedFunko.updatedAt = new Date();
-            fn(null, checkedFunko);
-        }
-    }
 });

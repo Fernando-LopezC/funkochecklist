@@ -9,7 +9,7 @@ module.exports = {
       upc: { type: Sequelize.INTEGER, unique: true, allowNull: false },
       fandom: Sequelize.STRING,
       category: Sequelize.STRING,
-      releaseDate: Sequelize.DATEONLY,
+      releaseDate: Sequelize.DATE,
       exclusive: { type: Sequelize.BOOLEAN, allowNull: false },
       exclusiveStore: Sequelize.STRING,
       image: { type: Sequelize.STRING, allowNull: false },

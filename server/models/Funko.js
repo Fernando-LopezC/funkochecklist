@@ -8,22 +8,10 @@ module.exports = (sequelize) => sequelize.define('funkos', {
       upc: { type: DataTypes.INTEGER, unique: true, allowNull: false },
       fandom: DataTypes.STRING,
       category: DataTypes.STRING,
-      releaseDate: DataTypes.DATEONLY,
+      releaseDate: DataTypes.DATE,
       exclusive: { type: DataTypes.BOOLEAN, allowNull: false },
       exclusiveStore: DataTypes.STRING,
       image: { type: DataTypes.STRING, allowNull: false },
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE
-}, {
-    hooks: {
-        beforeCreate: function (funko, options, fn) {
-            funko.createdAt = new Date();
-            funko.updatedAt = new Date();
-            fn(null, funko);
-        },
-        beforeUpdate: function (funko, options, fn) {
-            funko.updatedAt = new Date();
-            fn(null, funko);
-        }
-    }
 });
