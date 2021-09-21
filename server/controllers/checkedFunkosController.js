@@ -1,0 +1,1 @@
+const CheckedFunko = require('../models/CheckedFunko')

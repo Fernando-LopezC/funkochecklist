@@ -12,7 +12,9 @@ const getFunkos = async (req, res) => {
 //Get all funkos by fandom
 const getFunkosFandom = async (req, res) => {
     const {fandom} = req.params;
-    const funkos = await sequelize.models.funkos.findByPk(fandom);
+    const funkos = await sequelize.models.funkos.findAll({ where: {
+        fandom:fandom
+    }});
     return res.status(200).json({data : funkos})
 }
 

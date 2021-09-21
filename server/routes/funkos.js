@@ -13,8 +13,8 @@ const {
 } = require('../controllers/funkosController');
 
 router.get('/', getFunkos);
-router.get('/fandom', getFunkosFandom);
-router.get('/name',getFunkoName);
+router.get('/fandom/:fandom', getFunkosFandom);
+router.get('/name/:name',getFunkoName);
 
 router.post('/', newFunko);
 
