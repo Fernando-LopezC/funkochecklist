@@ -15,3 +15,5 @@ module.exports = (sequelize) => sequelize.define('funkos', {
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE
 });
+
+//to do: Fixx releadseDate not registering

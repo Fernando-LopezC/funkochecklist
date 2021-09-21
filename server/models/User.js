@@ -19,15 +19,6 @@ module.exports = (sequelize) => {
                 const salt = bcrypt.genSaltSync();
                 user.password = bcrypt.hashSync(user.password, salt);
             }
-            // beforeCreate: function (user, options, fn) {
-            //     user.createdAt = new Date();
-            //     user.updatedAt = new Date();
-            //     fn(null, user);
-            // },
-            // beforeUpdate: function (user, options, fn) {
-            //     user.updatedAt = new Date();
-            //     fn(null, user);
-            // }
         }
     });
     User.prototype.validPassword = function(password) {

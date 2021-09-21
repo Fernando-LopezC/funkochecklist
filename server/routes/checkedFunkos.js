@@ -45,4 +45,6 @@ router.delete('/:id', /*permission('admin', 'client'),*/ async (req, res) => {
     return res.json();
 });
 
+// to do: Optimize Model
+
 module.exports = router
