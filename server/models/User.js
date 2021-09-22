@@ -1,4 +1,3 @@
-// const sequelize = require('sequelize');
 const {DataTypes} = require('sequelize');
 const bcrypt = require('bcrypt');
 

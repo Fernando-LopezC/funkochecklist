@@ -26,8 +26,8 @@ router.get('/exclusivestore/:exclusiveStore', getFunkoStore);
 
 router.post('/', newFunko);
 
-router.put('/', updateFunko);
+router.put('/:id', updateFunko);
 
-router.delete('/', deleteFunko);
+router.delete('/:id', deleteFunko);
 
 module.exports = router;

@@ -1,7 +1,7 @@
 // const express = require('express');
 // const router = express.Router();
 const router = require('express').Router();
-// const permission = require('../middlewares/permission');
+const permission = require('../middlewares/permission');
 
 const {
     getUsers,
@@ -14,8 +14,8 @@ router.get('/', getUsers);
 
 router.post('/', newUser);
 
-router.put('/', updateUser);
+router.put('/:id', updateUser);
 
-router.delete('/', deleteUser);
+router.delete('/:id', deleteUser);
 
 module.exports = router;

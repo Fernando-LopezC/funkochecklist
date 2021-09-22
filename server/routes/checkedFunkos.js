@@ -18,8 +18,8 @@ router.get('/funkoid/:funkoId', getCheckedFunkosFunko)
 
 router.post('/', newCheckedFunko);
 
-router.put('/', updateCheckedFunko);
+router.put('/:id', updateCheckedFunko);
 
-router.put('/', deleteCheckedFunko);
+router.delete('/:id', deleteCheckedFunko);
 
 module.exports = router
