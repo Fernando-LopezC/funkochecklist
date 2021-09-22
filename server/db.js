@@ -8,8 +8,8 @@ const User = require('./models/User');
 const CheckedFunko = require('./models/CheckedFunko');
 
 //Database connection
-const sequelize = new Sequelize(process.env.MARIADB_DATABASE, process.env.MARIADB_USER, process.env.MARIADB_PASSWORD, {
-    host: process.env.MARIADB_HOST,
+const sequelize = new Sequelize(process.env.JAWSDB_DATABASE, process.env.JAWSDB_USER, process.env.JAWSDB_PASSWORD, {
+    host: process.env.JAWSDB_HOST,
     dialect: 'mariadb',
     logging: false
 });
