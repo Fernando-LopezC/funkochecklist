@@ -12,14 +12,14 @@ const {
     deleteCheckedFunko
 } = require('../controllers/checkedFunkosController');
 
-router.get('/', getCheckedFunkos);
-router.get('/userid/:userId', getCheckedFunkosUser);
-router.get('/funkoid/:funkoId', getCheckedFunkosFunko)
+router.get('/',/*permission('admin', 'client'),*/ getCheckedFunkos);
+router.get('/userid/:userId',/*permission('admin', 'client'),*/ getCheckedFunkosUser);
+router.get('/funkoid/:funkoId',/*permission('admin', 'client'),*/ getCheckedFunkosFunko)
 
-router.post('/', newCheckedFunko);
+router.post('/',/*permission('admin', 'client'),*/ newCheckedFunko);
 
-router.put('/:id', updateCheckedFunko);
+router.put('/:id',/*permission('admin', 'client'),*/ updateCheckedFunko);
 
-router.delete('/:id', deleteCheckedFunko);
+router.delete('/:id',/*permission('admin', 'client'),*/ deleteCheckedFunko);
 
 module.exports = router

@@ -16,18 +16,18 @@ const {
     deleteFunko
 } = require('../controllers/funkosController');
 
-router.get('/', getFunkos);
-router.get('/fandom/:fandom', getFunkosFandom);
-router.get('/name/:name',getFunkoName);
-router.get('/category/:category', getFunkoCategory);
-router.get('/id/:id', getFunkoId);
-router.get('/exclusive/:exclusive', getFunkoBoolean);
-router.get('/exclusivestore/:exclusiveStore', getFunkoStore);
+router.get('/',/*permission('admin', 'client'),*/ getFunkos);
+router.get('/fandom/:fandom',/*permission('admin', 'client'),*/ getFunkosFandom);
+router.get('/name/:name',/*permission('admin', 'client'),*/ getFunkoName);
+router.get('/category/:category',/*permission('admin', 'client'),*/ getFunkoCategory);
+router.get('/id/:id',/*permission('admin', 'client'),*/ getFunkoId);
+router.get('/exclusive/:exclusive',/*permission('admin', 'client'),*/ getFunkoBoolean);
+router.get('/exclusivestore/:exclusiveStore',/*permission('admin', 'client'),*/ getFunkoStore);
 
-router.post('/', newFunko);
+router.post('/',/*permission('admin'),*/ newFunko);
 
-router.put('/:id', updateFunko);
+router.put('/:id',/*permission('admin'),*/ updateFunko);
 
-router.delete('/:id', deleteFunko);
+router.delete('/:id',/*permission('admin'),*/ deleteFunko);
 
 module.exports = router;

@@ -10,12 +10,12 @@ const {
     deleteUser
 } = require('../controllers/usersController');
 
-router.get('/', getUsers);
+router.get('/',/*permission('admin'),*/ getUsers);
 
-router.post('/', newUser);
+router.post('/',/*permission('admin'),*/ newUser);
 
-router.put('/:id', updateUser);
+router.put('/:id',/*permission('admin', 'client'),*/ updateUser);
 
-router.delete('/:id', deleteUser);
+router.delete('/:id',/*permission('admin, 'client'),*/ deleteUser);
 
 module.exports = router;
