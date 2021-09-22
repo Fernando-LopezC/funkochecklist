@@ -16,7 +16,16 @@ const getCheckedFunkosUser = async (req, res) => {
     if(!checkedFunkos) {
         return res.status(404).json({code: 404, message: 'User not found'});
     }
-    return res.status(200).json({data: checkedFunkos})
+    return res.status(200).json({data: checkedFunkos});
+}
+
+//Get all user to have a specific funko
+const getCheckedFunkosFunko = async (req, res) => {
+    const {funkoId} = req.params;
+    const checkedFunkos = await sequelize.models.checkedFunkos.findAndCountAll({ where: {
+        funkoId:funkoId
+    }});
+    return res.status(200).json({data: checkedFunkos});
 }
 
 //Create a new checked funko
@@ -60,5 +69,6 @@ module.exports = {
     newCheckedFunko,
     updateCheckedFunko,
     deleteCheckedFunko,
-    getCheckedFunkosUser
+    getCheckedFunkosUser,
+    getCheckedFunkosFunko
 }

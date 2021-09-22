@@ -6,6 +6,7 @@ const router = require('express').Router();
 const {
     getCheckedFunkos,
     getCheckedFunkosUser,
+    getCheckedFunkosFunko,
     newCheckedFunko,
     updateCheckedFunko,
     deleteCheckedFunko
@@ -13,6 +14,7 @@ const {
 
 router.get('/', getCheckedFunkos);
 router.get('/userid/:userId', getCheckedFunkosUser);
+router.get('/funkoid/:funkoId', getCheckedFunkosFunko)
 
 router.post('/', newCheckedFunko);
 
