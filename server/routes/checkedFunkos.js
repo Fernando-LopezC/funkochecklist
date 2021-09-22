@@ -5,12 +5,14 @@ const router = require('express').Router();
 
 const {
     getCheckedFunkos,
+    getCheckedFunkosUser,
     newCheckedFunko,
     updateCheckedFunko,
     deleteCheckedFunko
 } = require('../controllers/checkedFunkosController');
 
 router.get('/', getCheckedFunkos);
+router.get('/userid/:userId', getCheckedFunkosUser);
 
 router.post('/', newCheckedFunko);
 

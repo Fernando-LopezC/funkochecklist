@@ -7,6 +7,10 @@ const {
     getFunkos,
     getFunkosFandom,
     getFunkoName,
+    getFunkoCategory,
+    getFunkoId,
+    getFunkoBoolean,
+    getFunkoStore,
     newFunko,
     updateFunko,
     deleteFunko
@@ -15,6 +19,10 @@ const {
 router.get('/', getFunkos);
 router.get('/fandom/:fandom', getFunkosFandom);
 router.get('/name/:name',getFunkoName);
+router.get('/category/:category', getFunkoCategory);
+router.get('/id/:id', getFunkoId);
+router.get('/exclusive/:exclusive', getFunkoBoolean);
+router.get('/exclusivestore/:exclusiveStore', getFunkoStore);
 
 router.post('/', newFunko);
 
