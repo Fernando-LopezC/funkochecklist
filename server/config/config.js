@@ -9,13 +9,16 @@ const defaultConfig = {
   dialect: 'mariadb' 
 };
 
-module.exports = {
-  development: defaultConfig,
-  production: Object.assign(defaultConfig, {
+const productionConfig = {
+
     username: process.env.JAWSDB_USER,
     password: process.env.JAWSDB_PASSWORD,
     database: process.env.JAWSDB_DATABASE,
     host: process.env.JAWSDB_HOST,
     dialect: 'mariadb'
-  })
+}
+
+module.exports = {
+  development: defaultConfig,
+  production: productionConfig
 };
